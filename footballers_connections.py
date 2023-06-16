@@ -121,14 +121,6 @@ def validate_player(player):
     return None
 
 
-def get_title_for_page_id(page_id):
-    """
-    Returns the title for the page id provided as a parameter
-    """
-
-    return urllib.parse.unquote(page_id.split("/")[-1]).replace("_", " ")
-
-
 def neighbors_for_player(player):
     """
     Returns (team_id, player_id) pairs for players
