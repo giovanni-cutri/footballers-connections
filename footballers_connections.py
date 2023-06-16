@@ -136,7 +136,7 @@ def neighbors_for_player(player):
     for team_id in teams_ids:
         res = requests.get(team_id + "10/")
         soup = bs4.BeautifulSoup(res.text, "lxml")
-        players_ids = [base_url + player.attrs["href"] for player in soup.select("a[href^='/player']")]
+        players_ids = {base_url + player.attrs["href"] for player in soup.select("a[href^='/player']")}
 
         for player_id in players_ids:
             neighbors.add((team_id, player_id))
